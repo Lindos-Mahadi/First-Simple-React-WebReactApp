@@ -8,7 +8,7 @@ import {
 import {Navbar, Nav, Container} from 'react-bootstrap'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faHouseDamage, faListOl,  faSearchLocation } from '@fortawesome/free-solid-svg-icons'
+import {faHouseDamage, faListOl,  faPlusSquare, faSearchLocation } from '@fortawesome/free-solid-svg-icons'
 
 import Home from "./components/Home"
 import RestaurantUpdate from "./components/RestaurantUpdate"
@@ -28,9 +28,9 @@ function App() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home"><NavLink className="text-decoration-none" to="/">< FontAwesomeIcon icon={faHouseDamage} />Home</NavLink></Nav.Link>
-            <Nav.Link href="#link"> <NavLink className="text-decoration-none" to="/list">< FontAwesomeIcon icon={faListOl} />List</NavLink></Nav.Link>
-            {/* <Nav.Link href="#home"><NavLink className="text-decoration-none" to="/create">Create</NavLink></Nav.Link> */}
+            <Nav.Link href="#home"><NavLink className="text-decoration-none" to="/"><FontAwesomeIcon icon={faHouseDamage} />Home</NavLink></Nav.Link>
+            <Nav.Link href="#link"> <NavLink className="text-decoration-none" to="/list"><FontAwesomeIcon icon={faListOl} />List</NavLink></Nav.Link>
+            <Nav.Link href="#home"><NavLink className="text-decoration-none" to="/create"><FontAwesomeIcon icon={faPlusSquare} />Create</NavLink></Nav.Link>
             <Nav.Link href="#link"><NavLink className="text-decoration-none" to="/search">< FontAwesomeIcon icon={faSearchLocation} />Search</NavLink></Nav.Link>
             {/* <Nav.Link href="#home"><NavLink className="text-decoration-none" to="/details">Details</NavLink></Nav.Link> */}
             {/* <Nav.Link href="#link"><NavLink className="text-decoration-none" to="/update">Update</NavLink></Nav.Link> */}

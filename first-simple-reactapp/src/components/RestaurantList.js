@@ -10,12 +10,37 @@ class RestaurantList extends Component {
             list: null,
         }
     }
-
+        //  
     componentDidMount(){
         fetch("http://localhost:3000/restList").then((response) =>{
             response.json().then((result)=>{
                 // console.log(result);
                 this.setState({list:result})
+                this.getData()
+            })
+        })
+    }
+    //  Delete Data
+    getData()
+    {
+        fetch("http://localhost:3000/restList").then((response) => {
+            response.json().then((result) => {
+                this.setState({ list: result })
+            })
+        })
+    }
+    delete(id)
+    {
+        fetch('http://localhost:3000/restList/'+id,
+        {
+            method: "DELETE",
+            // headers:{
+            //     'Content-Type':'application/json'
+            // },
+        }).then((result)=>{
+            result.json().then((resp)=>{
+                alert("Data has heen Deleted successfully")
+                this.getData()
             })
         })
     }
@@ -55,7 +80,7 @@ class RestaurantList extends Component {
                                         <FontAwesomeIcon icon={faInfo} color="black" style={{fontSize: "25px", marginRight: "10px"}}/>
                                         </Link>
 
-                                        <Link to={"/update/"+item.id}>
+                                        <Link onClick={()=>this.delete(item.id)}>
                                         <FontAwesomeIcon icon={faTrash} color="red" style={{fontSize: "25px"}} />
                                         </Link>
 
