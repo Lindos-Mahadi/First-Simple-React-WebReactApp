@@ -37,20 +37,13 @@ class RestaurantList extends Component {
                             <tbody>
                         {
                             this.state.list.map((item,i)=>
-                            // <div className="list-wrapper">
-                            //     <span>{item.name}</span>
-                            //     <span>{item.email}</span>
-                            //     <span>{item.rating}</span>
-                            //     <span>{item.address}</span>
-
-                            // </div>
-                            <tr>
-                                <td>{item.id}</td>
-                                <td>{item.name}</td>
-                                <td>{item.email}</td>
-                                <td>{item.rating}</td>
-                                <td>{item.address}</td>
-                          </tr>
+                                <tr>
+                                    <td>{item.id}</td>
+                                    <td>{item.name}</td>
+                                    <td>{item.email}</td>
+                                    <td>{item.rating}</td>
+                                    <td>{item.address}</td>
+                                </tr>
                             )
                             
                         }
