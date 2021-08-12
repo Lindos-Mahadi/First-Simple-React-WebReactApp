@@ -50,8 +50,11 @@ function App() {
         <Route path="/details">
           <RestaurantDetail />
         </Route>
-        <Route path="/update">
-          <RestaurantUpdate />
+        <Route path="/update/:id"
+        render={props=>(
+      <RestaurantUpdate {...props} />
+        )}
+        >
         </Route>
 
       </Router>

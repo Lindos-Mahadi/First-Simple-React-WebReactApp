@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Table} from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 class RestaurantList extends Component {
     constructor() {
         super();
@@ -32,6 +33,7 @@ class RestaurantList extends Component {
                                     <th>Email</th>
                                     <th>Rating</th>
                                     <th>Address</th>
+                                    <th>Operations</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,6 +45,7 @@ class RestaurantList extends Component {
                                     <td>{item.email}</td>
                                     <td>{item.rating}</td>
                                     <td>{item.address}</td>
+                                    <td><Link to={"/update/"+item.id}>Edit</Link></td>
                                 </tr>
                             )
                             
