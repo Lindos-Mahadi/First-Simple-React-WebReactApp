@@ -3,9 +3,12 @@ import './App.css';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  NavLink
 } from 'react-router-dom'
 import {Navbar, Nav, Container} from 'react-bootstrap'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faHouseDamage, faListOl,  faSearchLocation } from '@fortawesome/free-solid-svg-icons'
 
 import Home from "./components/Home"
 import RestaurantUpdate from "./components/RestaurantUpdate"
@@ -25,12 +28,12 @@ function App() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home"><Link to="/">Home</Link></Nav.Link>
-            <Nav.Link href="#link"> <Link to="/list">List</Link></Nav.Link>
-            <Nav.Link href="#home"><Link to="/create">Create</Link></Nav.Link>
-            <Nav.Link href="#link"><Link to="/search">Search</Link></Nav.Link>
-            <Nav.Link href="#home"><Link to="/details">Details</Link></Nav.Link>
-            <Nav.Link href="#link"><Link to="/update">Update</Link></Nav.Link>
+            <Nav.Link href="#home"><NavLink className="text-decoration-none" to="/">< FontAwesomeIcon icon={faHouseDamage} />Home</NavLink></Nav.Link>
+            <Nav.Link href="#link"> <NavLink className="text-decoration-none" to="/list">< FontAwesomeIcon icon={faListOl} />List</NavLink></Nav.Link>
+            {/* <Nav.Link href="#home"><NavLink className="text-decoration-none" to="/create">Create</NavLink></Nav.Link> */}
+            <Nav.Link href="#link"><NavLink className="text-decoration-none" to="/search">< FontAwesomeIcon icon={faSearchLocation} />Search</NavLink></Nav.Link>
+            {/* <Nav.Link href="#home"><NavLink className="text-decoration-none" to="/details">Details</NavLink></Nav.Link> */}
+            {/* <Nav.Link href="#link"><NavLink className="text-decoration-none" to="/update">Update</NavLink></Nav.Link> */}
           </Nav>
         </Navbar.Collapse>
         </Container>

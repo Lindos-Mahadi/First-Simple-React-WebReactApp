@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Table} from 'react-bootstrap';
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faInfo, faTrash, faEdit } from '@fortawesome/free-solid-svg-icons'
 class RestaurantList extends Component {
     constructor() {
         super();
@@ -45,7 +47,19 @@ class RestaurantList extends Component {
                                     <td>{item.email}</td>
                                     <td>{item.rating}</td>
                                     <td>{item.address}</td>
-                                    <td><Link to={"/update/"+item.id}>Edit</Link></td>
+                                    <td ><Link to={"/update/"+item.id}>
+                                        <FontAwesomeIcon icon={faEdit} color="yellow" style={{fontSize: "25px", marginRight: "10px"}} />
+                                        </Link>
+
+                                        <Link to={"/update/"+item.id}>
+                                        <FontAwesomeIcon icon={faInfo} color="black" style={{fontSize: "25px", marginRight: "10px"}}/>
+                                        </Link>
+
+                                        <Link to={"/update/"+item.id}>
+                                        <FontAwesomeIcon icon={faTrash} color="red" style={{fontSize: "25px"}} />
+                                        </Link>
+
+                                        </td>
                                 </tr>
                             )
                             
