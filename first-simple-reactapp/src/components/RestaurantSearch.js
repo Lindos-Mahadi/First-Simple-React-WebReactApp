@@ -3,6 +3,7 @@ import { Table,Form,Container } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faInfo, faTrash, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
+import NavBarManu from './NavBarManu'
 
 class RestaurantSearch extends Component {
     constructor() {
@@ -47,7 +48,10 @@ class RestaurantSearch extends Component {
     }
     render() {
         return (
-            <Container>
+            
+            <div>
+                <NavBarManu />
+                <Container>
                 <h1>Restaurant Search</h1>
 
                 <Form.Control type="text"  onChange={(event) => this.search(event.target.value)}   placeholder="Search restaurant" />
@@ -101,6 +105,7 @@ class RestaurantSearch extends Component {
                 </div>
 
             </Container>
+            </div>
         );
     }
 }

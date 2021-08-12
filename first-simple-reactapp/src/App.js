@@ -8,7 +8,7 @@ import {
 import {Navbar, Nav, Container} from 'react-bootstrap'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faHouseDamage, faListOl,  faPlusSquare, faSearchLocation } from '@fortawesome/free-solid-svg-icons'
+import {faHouseDamage, faListOl,  faPlusSquare, faUser, faSearchLocation } from '@fortawesome/free-solid-svg-icons'
 
 import Home from "./components/Home"
 import RestaurantUpdate from "./components/RestaurantUpdate"
@@ -16,50 +16,34 @@ import RestaurantCreate from "./components/RestaurantCreate"
 import RestaurantDetail from "./components/RestaurantDetail"
 import RestaurantSearch from "./components/RestaurantSearch"
 import RestauranstList from "./components/RestaurantList"
-
+import Login from './components/Login'
+import Protected from './components/Protected'
+import Logout from './components/Logout'
+import NavBarManu from './components/NavBarManu'
 
 function App() {
   return (
     <div className="App">
       <Router>
-      <Navbar bg="dark" expand="md">
-        <Container>
-        <Navbar.Brand href="#home" text="light">React Web App</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home"><NavLink className="text-decoration-none" to="/"><FontAwesomeIcon icon={faHouseDamage} />Home</NavLink></Nav.Link>
-            <Nav.Link href="#link"> <NavLink className="text-decoration-none" to="/list"><FontAwesomeIcon icon={faListOl} />List</NavLink></Nav.Link>
-            <Nav.Link href="#home"><NavLink className="text-decoration-none" to="/create"><FontAwesomeIcon icon={faPlusSquare} />Create</NavLink></Nav.Link>
-            <Nav.Link href="#link"><NavLink className="text-decoration-none" to="/search">< FontAwesomeIcon icon={faSearchLocation} />Search</NavLink></Nav.Link>
-            {/* <Nav.Link href="#home"><NavLink className="text-decoration-none" to="/details">Details</NavLink></Nav.Link> */}
-            {/* <Nav.Link href="#link"><NavLink className="text-decoration-none" to="/update">Update</NavLink></Nav.Link> */}
-          </Nav>
-        </Navbar.Collapse>
-        </Container>
-    </Navbar>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/list">
-          <RestauranstList />
-        </Route>
-        <Route path="/create">
-          <RestaurantCreate />
-        </Route>
-        <Route path="/search">
-          <RestaurantSearch />
-        </Route>
-        <Route path="/details">
-          <RestaurantDetail />
-        </Route>
-        <Route path="/update/:id"
+      <Route path="/logout">
+        <Logout />
+      </Route> 
+
+        {/*  */}
+      <Route path="/login"
         render={props=>(
-      <RestaurantUpdate {...props} />
+      <Login {...props} />
         )}
         >
         </Route>
+        {/*  */}
+        <Protected exact path="/details" component={RestaurantDetail} />
+      <Protected exact path="/update/:id" component={RestaurantUpdate} />
+      <Protected exact path="/search" component={RestaurantSearch} />
+      <Protected exact path="/create" component={RestaurantCreate} />
+      <Protected exact path="/list" component={RestauranstList} />
 
+      <Protected exact path="/" component={Home} />
       </Router>
     </div>
   );

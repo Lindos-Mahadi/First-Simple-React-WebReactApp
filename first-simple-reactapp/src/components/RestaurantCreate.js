@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Container, Button} from 'react-bootstrap';
+import NavBarManu from './NavBarManu'
 class RestaurantCreate extends Component {
     constructor() {
         super();
@@ -26,6 +27,7 @@ class RestaurantCreate extends Component {
     render() {
         return (
             <div>
+                <NavBarManu />
                 <h1>Restaurant Create</h1>
 
                 <div>
@@ -37,7 +39,7 @@ class RestaurantCreate extends Component {
                         placeholder="Rating" /> <br /><br />
                     <input onChange={(event) => { this.setState({ address: event.target.value }) }}
                         placeholder="Address" /> <br /><br />
-                    <Button variant="success" onClick={() => { this.create() }}>Submit</Button>{' '}
+                    <Button variant="success" onClick={() => { this.create() }}>Submit</Button>
                 </div>
 
             </div>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Container, Button} from 'react-bootstrap';
+import NavBarManu from './NavBarManu'
 class RestaurantUpdate extends Component {
     constructor()
     {
@@ -46,6 +47,7 @@ class RestaurantUpdate extends Component {
     render() {
         return (
             <div>
+                <NavBarManu />
                 <h1>RestaurantUpdate</h1>
 
                 <div>
